@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    <Console name="stdout">
+      <JSONLayout compact="true" eventEol="true" properties="true" stacktraceAsString="true"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <!-- SQL execution logging is logged to the LoggerListener logger at DEBUG level -->
+    <Logger level="off" name="org.jooq.tools.LoggerListener">
+      <AppenderRef ref="Console"/>
+    </Logger>
+
+    <!-- Other jOOQ related debug log output -->
+    <Logger level="off" name="org.jooq">
+      <AppenderRef ref="Console"/>
+    </Logger>
+
+    <Root additivity="true" level="INFO">
+      <AppenderRef ref="stdout"/>
+    </Root>
+  </Loggers>
+</Configuration>

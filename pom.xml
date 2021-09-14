@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>merchantapi</artifactId>
+    <groupId>demo.merchant.api</groupId>
+    <version>1.0.0</version>
+
+    <name>merchant-api</name>
+
+    <properties>
+        <!-- Startup class -->
+        <application.class>demo.merchant.api.App</application.class>
+
+        <jooby.version>2.10.0</jooby.version>
+        <jooq.version>3.15.2</jooq.version>
+
+        <db_pwd>demoPg</db_pwd>
+        <db_uri>postgresql://localhost:5432/demo-data</db_uri>
+        <db_user>demoPg</db_user>
+
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
+        <maven.compiler.parameters>true</maven.compiler.parameters>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.jooby</groupId>
+            <artifactId>jooby-utow</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jooby</groupId>
+            <artifactId>jooby-metrics</artifactId>
+            <version>${jooby.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jooby</groupId>
+            <artifactId>jooby-jackson</artifactId>
+            <version>${jooby.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jooby</groupId>
+            <artifactId>jooby-swagger-ui</artifactId>
+            <version>${jooby.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.14.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.14.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.dagger</groupId>
+            <artifactId>dagger</artifactId>
+            <version>2.36</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.1.1-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>0.10.4</version>
+        </dependency>
+        <dependency>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr-jackson</artifactId>
+            <version>0.10.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.kkuegler</groupId>
+            <artifactId>human-readable-ids-java</artifactId>
+            <version>0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.nitram509</groupId>
+            <artifactId>jmacaroons</artifactId>
+            <version>0.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>de.mkammerer</groupId>
+            <artifactId>argon2-jvm</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.passay</groupId>
+            <artifactId>passay</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
+        <!-- JDBC -->
+        <dependency>
+            <artifactId>jooby-hikari</artifactId>
+            <groupId>io.jooby</groupId>
+            <version>${jooby.version}</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>postgresql</artifactId>
+            <groupId>org.postgresql</groupId>
+            <version>42.2.10</version>
+        </dependency>
+
+        <!-- JOOQ -->
+        <dependency>
+            <artifactId>jooq</artifactId>
+            <groupId>org.jooq</groupId>
+            <version>${jooq.version}</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>jooq-meta</artifactId>
+            <groupId>org.jooq</groupId>
+            <version>${jooq.version}</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>jooq-codegen</artifactId>
+            <groupId>org.jooq</groupId>
+            <version>${jooq.version}</version>
+        </dependency>
+
+        <!-- Tests -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jooby</groupId>
+            <artifactId>jooby-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.19.0</version>
+            <scope>test</scope>
+        </dependency>
+
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-api</artifactId>
+                <version>1.5.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-extension-annotations</artifactId>
+                <version>1.5.0</version>
+            </dependency>
+
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>conf</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>io.jooby</groupId>
+                            <artifactId>jooby-apt</artifactId>
+                            <version>${jooby.version}</version>
+                        </path>
+                        <path>
+                            <groupId>com.google.dagger</groupId>
+                            <artifactId>dagger-compiler</artifactId>
+                            <version>2.36</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        <compilerArg>
+                            -Ajooby.debug=false
+                        </compilerArg>
+                        <compilerArg>
+                            -Ajooby.services=true
+                        </compilerArg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+            </plugin>
+            <!-- jooby:run -->
+            <plugin>
+                <groupId>io.jooby</groupId>
+                <artifactId>jooby-maven-plugin</artifactId>
+                <version>${jooby.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>openapi</goal>
+                        </goals>
+                        <configuration>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Build uber jar -->
+            <plugin>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <id>uber-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <manifestEntries>
+                                        <Main-Class>${application.class}</Main-Class>
+                                        <Multi-Release>true</Multi-Release>
+                                    </manifestEntries>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>jooq-codegen-maven</artifactId>
+                <configuration>
+                    <generator>
+                        <database>
+                            <includes>.*</includes>
+                            <name>org.jooq.meta.postgres.PostgresDatabase</name>
+                            <schemata>
+                                <schema>
+                                    <inputSchema>catalog</inputSchema>
+                                </schema>
+                                <schema>
+                                    <inputSchema>cart</inputSchema>
+                                </schema>
+                            </schemata>
+                        </database>
+                        <generate>
+                            <javaTimeTypes>true</javaTimeTypes>
+                        </generate>
+                        <strategy>
+                            <matchers>
+                                <tables>
+                                    <table>
+                                        <tableClass>
+                                            <expression>JOOQ_$0</expression>
+                                            <transform>UPPER</transform>
+                                        </tableClass>
+                                    </table>
+                                </tables>
+                            </matchers>
+                        </strategy>
+                        <target>
+                            <directory>target/generated-sources/jooq</directory>
+                            <packageName>demo.merchant.api.codegen</packageName>
+                        </target>
+                    </generator>
+                    <jdbc>
+                        <driver>org.postgresql.Driver</driver>
+                        <password>${db_pwd}</password>
+                        <url>jdbc:${db_uri}</url>
+                        <user>${db_user}</user>
+                    </jdbc>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <artifactId>postgresql</artifactId>
+                        <groupId>org.postgresql</groupId>
+                        <version>42.2.10</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <groupId>org.jooq</groupId>
+                <version>${jooq.version}</version>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.jooby</groupId>
+                <artifactId>jooby-bom</artifactId>
+                <version>${jooby.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

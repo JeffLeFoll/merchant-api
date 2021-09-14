@@ -1,0 +1,26 @@
+### GET I'm alive !
+GET http://localhost:8080/
+Accept: application/json
+
+###
+POST http://localhost:8080/catalog
+Accept: application/json
+
+{
+  "name": "Product 1",
+  "description": "An awesome product 1",
+  "price": 16.57
+}
+
+###
+PATCH http://localhost:8080/catalog/toto?price=23.45
+Accept: application/json
+
+###
+PATCH http://localhost:8080/catalog/6b73e320-20c8-444c-b876-fc7739acde65?price=456.39
+Accept: application/json
+
+###
+GET http://localhost:8080/catalog
+Accept: application/json
+
