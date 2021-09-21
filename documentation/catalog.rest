@@ -5,11 +5,12 @@ Accept: application/json
 ###
 POST http://localhost:8080/catalog
 Accept: application/json
+Content-Type: application/json
 
 {
-  "name": "Product 1",
-  "description": "An awesome product 1",
-  "price": 16.57
+  "name": "Product 4",
+  "description": "A super awesome product 4",
+  "price": 160.97
 }
 
 ###
@@ -17,7 +18,7 @@ PATCH http://localhost:8080/catalog/toto?price=23.45
 Accept: application/json
 
 ###
-PATCH http://localhost:8080/catalog/6b73e320-20c8-444c-b876-fc7739acde65?price=456.39
+PATCH http://localhost:8080/catalog/6b73e320-20c8-444c-b876-fc7739acde65?price=45.39
 Accept: application/json
 
 ###
